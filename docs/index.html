@@ -109,12 +109,38 @@
 
 </footer>
 
-  <a href="#how-to-join" class="fixed bottom-6 right-6 z-50 bg-yellow-500 text-white p-4 rounded-full shadow-lg hover:bg-yellow-600 transition" title="Go to How to Join">
-    Become a Patron
-  </a>
+  <div id="join-btn-wrapper">
+    <a href="#how-to-join" class="fixed bottom-6 right-6 z-50 bg-yellow-500 text-white p-4 rounded-full shadow-lg hover:bg-yellow-600 transition" title="Go to How to Join">
+      Become a Patron
+    </a>
+  </div>
+
+</footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          const btn = document.getElementById("join-btn-wrapper");
+          if (entry.isIntersecting) {
+            btn.classList.add("hidden");
+          } else {
+            btn.classList.remove("hidden");
+          }
+        },
+        {
+          root: null,
+          threshold: 0.1,
+        }
+      );
+      const target = document.getElementById("how-to-join");
+      if (target) {
+        observer.observe(target);
+      }
+    });
   </script>
 </body>
 
