@@ -234,7 +234,7 @@
         <img src="${a.img}" alt="${a.name}" class="w-full h-40 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold">${a.name}</h3>
-          <p class="mt-2 text-gray-700">${isComingSoon ? 'Coming soon' : a.description}</p>
+          <p class="mt-2 text-gray-700">${a.description}</p>
         </div>`;
       if (isComingSoon) card.href = 'javascript:void(0)';
       container.appendChild(card);
