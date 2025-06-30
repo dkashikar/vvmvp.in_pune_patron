@@ -224,11 +224,13 @@
   }
 ];
 
+const activated = ['triveni'];
+
     const container = document.getElementById("ashram-list");
     ashrams.forEach(a => {
       const card = document.createElement("a");
       const isComingSoon = a.id !== 'triveni';
-      card.href = a.href;
+      card.href = activated.includes(a.id) ? a.href : 'javascript:void(0)';
       card.className = "block border rounded-lg overflow-hidden hover:shadow-lg transition";
       card.innerHTML = `
         <img src="${a.img}" alt="${a.name}" class="w-full h-40 object-cover">
@@ -236,7 +238,6 @@
           <h3 class="text-xl font-semibold">${a.name}</h3>
           <p class="mt-2 text-gray-700">${a.description}</p>
         </div>`;
-      if (isComingSoon) card.href = 'javascript:void(0)';
       container.appendChild(card);
     });
   </script>
