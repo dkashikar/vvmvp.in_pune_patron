@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-white text-gray-800 font-sans leading-relaxed">
-  <header class="bg-yellow-50 border-b border-yellow-200 p-6 text-center text-gray-800">
+  <header id="back-to-home" class="bg-yellow-50 border-b border-yellow-200 p-6 text-center text-gray-800 cursor-pointer">
     <img src="/logo.png" alt="Triveni Ashram Logo" class="mx-auto w-32 h-auto mb-4" />
     <h1 class="text-3xl font-bold">Donate to VVMVP Pune – Triveni Ashram</h1>
     <p>Support our spiritual and community initiatives in Pune.</p>
@@ -109,10 +109,13 @@
 </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  <script>
     document.addEventListener("DOMContentLoaded", function () {
+
+      document.getElementById("back-to-home").addEventListener("click", function () {
+        window.location.href = "/";
+      });
+
+      document.getElementById("year").textContent = new Date().getFullYear();
       const observer = new IntersectionObserver(
         ([entry]) => {
           const btn = document.getElementById("join-btn-wrapper");
